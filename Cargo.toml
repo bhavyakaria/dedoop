@@ -1,0 +1,25 @@
+[package]
+name = "dedoop"
+version = "0.1.0"
+edition = "2021"
+description = "High-performance duplicate file finder — Rust edition"
+license = "MIT"
+
+[dependencies]
+blake3 = "1"                    # BLAKE3 hash with SIMD (AVX2/AVX-512/NEON)
+rayon = "1"                     # Work-stealing thread pool
+walkdir = "2"                   # Fast recursive directory traversal
+memmap2 = "0.9"                 # Zero-copy memory-mapped file I/O
+clap = { version = "4", features = ["derive"] }  # CLI argument parsing
+libc = "0.2"                    # Raw syscalls (stat, ioctl)
+rusqlite = { version = "0.31", features = ["bundled"], optional = true }
+
+[profile.release]
+opt-level = 3           # Full optimisation
+lto = "fat"             # Link-time optimisation across crates
+codegen-units = 1       # Single codegen unit for better inlining
+panic = "abort"         # Smaller binary, faster unwinding path
+
+[[bin]]
+name = "dedoop"
+path = "src/main.rs"
