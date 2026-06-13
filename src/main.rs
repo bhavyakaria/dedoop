@@ -57,8 +57,9 @@ struct Args {
     #[arg(short = 'p', long)]
     prefer: Option<PathBuf>,
 
+    /// Include hidden files and folders (names starting with .)
     #[arg(long)]
-    no_hidden: bool,
+    hidden: bool,
 
     #[arg(long)]
     delete: bool,
@@ -586,7 +587,7 @@ fn main() {
         }
     }
 
-    let skip = !args.no_hidden;
+    let skip = !args.hidden;
     eprintln!("{} Scanning directories …", dim(&timestamp()));
     let mut files = collect_files(&folders, skip);
     files.retain(|e| e.size >= args.min_size);

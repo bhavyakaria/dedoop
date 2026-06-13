@@ -51,7 +51,7 @@ Options:
   -s, --min-size <BYTES>   Ignore files smaller than this [default: 1]
   -w, --workers <N>        Parallel worker threads [default: CPU count]
   -p, --prefer <PATH>      Treat files in this folder as "originals"
-  --no-hidden              Include hidden files/folders
+  --hidden                 Include hidden files/folders
   --delete                 Automatically delete duplicates
   --dry-run                Print groups only — no files written
   --hdd-workers <N>        Max workers for rotational drives [default: 4]
