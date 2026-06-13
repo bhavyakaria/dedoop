@@ -11,7 +11,7 @@ cargo build --release
 ./target/release/dedoop /path/to/folder1 /path/to/folder2
 ```
 
-Or download a pre‑built binary from [Releases](https://github.com/YOU/dedoop/releases):
+Or download a pre‑built binary from [Releases](https://github.com/bhavyakaria/dedoop/releases):
 
 ```bash
 curl -LO https://github.com/YOU/dedoop/releases/latest/download/dedoop-linux-x86_64
